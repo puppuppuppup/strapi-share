@@ -1,4 +1,4 @@
-import { ApiCustomTypes } from '@whotioma/api-factory';
+import { ApiCustomTypes } from '@puppup/api-factory';
 import {
     APIResponse,
     APIResponseCollection,

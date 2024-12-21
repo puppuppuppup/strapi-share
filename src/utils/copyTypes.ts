@@ -2,8 +2,8 @@ import path from 'path';
 import fs from 'fs';
 
 type CopyConfig = {
-    strapiFolder: string;
-    destinationFolder: string;
+    strapiPath: string;
+    destPath: string;
 };
 
 type FilesConfig = {
@@ -11,17 +11,17 @@ type FilesConfig = {
     dest: string;
 };
 
-export const copyStrapiTypes = ({ strapiFolder, destinationFolder }: CopyConfig) => {
+export const copyStrapiTypes = ({ strapiPath, destPath }: CopyConfig) => {
     const currentPath = process.cwd();
 
     const files: FilesConfig[] = [
         {
-            src: path.resolve(currentPath, strapiFolder, 'types/generated/contentTypes.d.ts'),
-            dest: path.resolve(currentPath, destinationFolder, 'contentTypes.d.ts'),
+            src: path.resolve(currentPath, strapiPath, 'types/generated/contentTypes.d.ts'),
+            dest: path.resolve(currentPath, destPath, 'contentTypes.d.ts'),
         },
         {
-            src: path.resolve(currentPath, strapiFolder, 'types/generated/components.d.ts'),
-            dest: path.resolve(currentPath, destinationFolder, 'components.d.ts'),
+            src: path.resolve(currentPath, strapiPath, 'types/generated/components.d.ts'),
+            dest: path.resolve(currentPath, destPath, 'components.d.ts'),
         },
     ];
 
