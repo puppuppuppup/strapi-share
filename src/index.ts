@@ -1,4 +1,5 @@
 import type { Schema, UID, Utils } from '@strapi/strapi';
+export type { ApiStrapiTypes } from './libs/api-factory/index'
 
 export type StrapiModelUID = UID.ContentType | UID.Component;
 type IDs = { id: number; documentId: string };
