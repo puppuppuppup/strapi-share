@@ -1,6 +1,6 @@
 {
   "name": "@whotioma/strapi-share",
-  "version": "1.0.1",
+  "version": "0.0.1",
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
