@@ -12,14 +12,16 @@ type FilesConfig = {
 };
 
 export const copyStrapiTypes = ({ strapiFolder, destinationFolder }: CopyConfig) => {
+    const currentPath = process.cwd();
+
     const files: FilesConfig[] = [
         {
-            src: `${strapiFolder}/types/generated/contentTypes.d.ts`,
-            dest: `${destinationFolder}/contentTypes.d.ts`,
+            src: path.join(currentPath, strapiFolder, '/types/generated/contentTypes.d.ts'),
+            dest: path.join(currentPath, destinationFolder, 'contentTypes.d.ts'),
         },
         {
-            src: `${strapiFolder}/types/generated/components.d.ts`,
-            dest: `${destinationFolder}/components.d.ts`,
+            src: path.join(currentPath, strapiFolder, '/types/generated/components.d.ts'),
+            dest: path.join(currentPath, strapiFolder, '/components.d.ts'),
         },
     ];
 
