@@ -4,6 +4,7 @@
   "description": "",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
+  "homepage": "https://github.com/puppuppuppup/strapi-share",
   "keywords": [
     "strapi",
     "types"
@@ -14,7 +15,7 @@
   "author": "puppuppuppup",
   "license": "MIT",
   "dependencies": {
-    "@puppup/api-factory": "^1.0.0",
+    "@puppup/api-factory": "^1.0.2",
     "@strapi/strapi": "^5.6.0"
   },
   "devDependencies": {
