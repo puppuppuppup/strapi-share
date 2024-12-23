@@ -29,7 +29,7 @@ export default [
       'no-unused-vars': 'warn',
       'no-explicit-any': 'off',
       'prefer-const': 'warn',
-      'no-console': 'warn',
+      // 'no-console': 'warn',
     },
   },
 ];

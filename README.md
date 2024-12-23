@@ -16,15 +16,15 @@
 1. Создать в корне проекта файл `copyTypes.ts`
 
 ```ts
-// copyTypes.ts
+// copyTypes.js
 
-import { copyStrapiTypes } from '@puppup/strapi-share';
+const copyStrapiTypes = require('@puppup/strapi-share').copyStrapiTypes;
 
 copyStrapiTypes({
     // путь до папки проекта Strapi
     strapiPath: 'path/to/strapi',
     // путь, куда будут помещены сгенерированные типы
-    destPath: './types/strapi',
+    destPath: './src/types/strapi',
 });
 ```
 
@@ -36,7 +36,7 @@ copyStrapiTypes({
 {
     ...
     "scripts": {
-        "types": "npx ts-node ./copyTypes.ts"
+        "types": "node copyTypes.js"
     }
     ...
 }
@@ -67,14 +67,30 @@ type UsersApi = APIResponseCollection<'plugin::users-permissions.user'>;
 ### [`@puppup/api-factory`](https://github.com/puppuppuppup/api-factory)
 `ApiStrapiTypes` создает типы, которые можно использовать для типизации `ApiFactory` на базе стандартных ответов `Strapi`
 ```ts
-import { ApiFactory } from '@puppup/api-factory';
+import { Api, ApiFactory, ... } from '@puppup/api-factory';
 import { ApiStrapiTypes } from '@pupppup/strapi-share';
 
+...
+
+// Использование утилиты для создания кастомных типов под Strapi
+type ApiTypes = ApiStrapiTypes<'plugin::users-permissions.user'>;
+
+// ApiFactory (singleton)
 const apiFactory = new ApiFactory({
     baseUrl: 'base_url'
 });
-
-type ApiTypes = ApiStrapiTypes<'plugin::users-permissions.user'>;
-
 class UsersApi extends apiFactory.getApi<ApiTypes>('users') {}
+
+// ApiFactory (no-singleton)
+const { apis } = new ApiFactory({
+    httpConfig: HTTP_CONFIG,
+    apisConfig: {
+        usersApi: {
+            instance: Api<ApiTypes>,
+            endpoint: 'users',
+        },
+    },
+});
+
+
 ```
