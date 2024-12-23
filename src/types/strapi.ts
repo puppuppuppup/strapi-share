@@ -1,6 +1,6 @@
 import { Schema, UID, Utils } from '@strapi/strapi';
 
-type StrapiModelUID = UID.ContentType | UID.Component;
+export type StrapiModelUID = UID.ContentType | UID.Component;
 type IDs = { id: number; documentId: string };
 
 type InvalidKeys<TSchemaUID extends StrapiModelUID> = Utils.Object.KeysBy<
