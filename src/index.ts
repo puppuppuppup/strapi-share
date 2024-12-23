@@ -1,7 +1,6 @@
 export type { ApiStrapiTypes } from './libs/api-factory/index';
 export type {
     GetStrapiType,
-    StrapiModelUID,
     APIResponse,
     APIResponseCollection,
     APIResponseCollectionMetadata,

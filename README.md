@@ -47,10 +47,13 @@ npm run types
 ```
 
 ## Использование типов
+Для правильного подтягивания типов необходимо установить пакет `@strapi/strapi`
 ```ts
-import { APIResponse, StrapiModelUID, APIResponseCollection, GetStrapiType } from '@puppup/strapi-share';
+import { APIResponse, APIResponseCollection, GetStrapiType } from '@puppup/strapi-share';
+import { UID } from '@strapi/strapi'
 
 // Использование типа, описывающего UID моделей
+type StrapiModelUID = UID.ContentType | UID.Component;
 const userSchemaUID: StrapiModelUID = 'plugin::users-permissions.user';
 
 // Получение типа модели по его UID
