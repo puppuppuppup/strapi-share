@@ -46,7 +46,7 @@ export type GetStrapiType<TSchemaUID extends StrapiModelUID> = IDs & {
         : never;
 };
 
-const userSchemaUID: StrapiModelUID = 'plugin::users-permissions.user';
+const userSchemaUID = 'plugin::users-permissions.user';
 type UserSchemaUID = typeof userSchemaUID;
 
 export type APIResponse<TSchemaUID extends StrapiModelUID> = TSchemaUID extends UserSchemaUID
